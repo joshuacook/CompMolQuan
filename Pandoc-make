@@ -1,0 +1,46 @@
+#!/usr/bin/perl
+
+# pandoc command and arguments
+$make_string =              "pandoc                                                           ";
+$make_string = $make_string."--latex-engine=xelatex                                           ";
+$make_string = $make_string."-V fontsize=12pt                                                 ";
+$make_string = $make_string."-H  'meta/preamble.tex'                                          ";
+$make_string = $make_string."-V documentclass:book                                            ";
+$make_string = $make_string."-V --chapters                                                    ";
+$make_string = $make_string."--filter pandoc-crossref                                         ";
+
+# assembly of document
+# document meta information
+$make_string = $make_string."--bibliography='meta/papers.bib'                                 ";
+$make_string = $make_string."'meta/math_commands.md'                                          ";
+$make_string = $make_string."'meta/title.md'                                                  ";
+$make_string = $make_string."'meta/summary.md'                                                ";
+$make_string = $make_string."'meta/toc.md'                                                    ";
+$make_string = $make_string."'chapters/introduction.md'                                       ";
+$make_string = $make_string."'chapters/introduction/schrodingers_equation.md'                 ";
+$make_string = $make_string."'chapters/introduction/particle_in_a_box.md'                     ";
+$make_string = $make_string."'chapters/introduction/discrete_representations.md'              ";
+$make_string = $make_string."'chapters/introduction/computational_science.md'                 ";
+$make_string = $make_string."'chapters/power_method.md'                                       ";
+$make_string = $make_string."'chapters/power_method/simple_power_method.md'                   ";
+$make_string = $make_string."'chapters/power_method/iterative_techniques.md'                  ";
+$make_string = $make_string."'chapters/itp_method.md'                                         ";
+$make_string = $make_string."'chapters/itp_method/applications.md'                            ";
+$make_string = $make_string."'chapters/itp_method/propagation.md'                             ";
+$make_string = $make_string."'appendix/appendix.md'                                           ";
+$make_string = $make_string."'appendix/glossary.md'                                           ";
+$make_string = $make_string."'appendix/software_packages.md'                                  ";
+$make_string = $make_string."'appendix/software_packages/C.md'                                ";
+$make_string = $make_string."'appendix/software_packages/C/gsl.md'                            ";
+$make_string = $make_string."'appendix/software_packages/C/minunit.md'                        ";
+$make_string = $make_string."'appendix/software_packages/Python.md'                           ";
+$make_string = $make_string."'appendix/software_packages/Python/ipython.md'                   ";
+$make_string = $make_string."'appendix/software_packages/Python/numpy.md'                     ";
+$make_string = $make_string."'appendix/software_packages/Python/scipy.md'                     ";
+$make_string = $make_string."'appendix/software_packages/Unix_like.md'                        ";
+$make_string = $make_string."'appendix/software_packages/Unix_like/pandoc.md'                 ";
+$make_string = $make_string."'appendix/references.md'                                         ";
+$make_string = $make_string."-o '451-final.tex' && pdflatex 451-final.tex                     ";
+
+exec($make_string);
+exec($make_string);
